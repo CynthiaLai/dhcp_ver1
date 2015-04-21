@@ -14,9 +14,9 @@ Mac_list = []
 num = 1
 #get serverIP
 ip = socket.gethostbyname(socket.gethostname())
-packedIP = socket.inet_aton(ip)
+packedIP = socket.inet_aton(ip) #32-bit packed binary format
 IPdata = packedIP[0:4]
-Mac_list.append(ord(packedIP[3]))       
+Mac_list.append(ord(packedIP[3]))  #ord():unicode
 
 while 1:
      Sdata = serverSocket.recv(2048)
@@ -42,7 +42,7 @@ while 1:
      if 150 + num in Mac_list:
           num = num + 1
 
-     YIADDR = IPdata[0:3] + struct.pack('B',150 + num) #tranfor to str
+     YIADDR = IPdata[0:3] + struct.pack('B',150 + num) # str
      Mac_list.append(150+num)
      Assign_IP = YIADDR
      num = num + 1
