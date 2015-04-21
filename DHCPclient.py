@@ -62,12 +62,9 @@ while 1:
     serIP = socket.gethostbyname(socket.gethostname())   
     if (svrip == serIP):
         TransID = Data[4:8]
-        Offer_IP = Data[16:20]
         NextServerIP = Data[20:24]
         MACaddr = Data[28:34]
         DHCPServerIdentifier = Data[245:249]
-        LeaseTime = Data[251:255]
-        SubnetMask = Data[263:267]
 
         #DHCP_REQUEST message
         print "send REQUEST message"
